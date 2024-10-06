@@ -1,0 +1,43 @@
+
+import java.util.Scanner;
+
+public class App {
+    // Link đề bài: https://oj.vnoi.info/problem/bedao_m25_a
+    // Tổng trọng số lẻ
+    
+    public static void main(String[] args) {
+        // phần đầu: nhập vào n, và n phần tử của mảng số nguyên dương a
+        int n = 6;
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        int[] a = new int[n];
+        for(int i=0; i<n; i++)
+            a[i] = sc.nextInt();
+        
+//        // in ra mảng đã nhập
+//        for(int j=0; j<n; j++)
+//            System.out.print(a[j] + " ");
+//        
+//        // xử lý
+
+        int sum = 0;
+        //cách 1:
+//        for(int i=0; i<=n-2; i++)
+//            for(int j=i+1; j<=n-1; j++)
+//                if ((a[i] + a[j]) % 2 == 1)
+//                    sum = sum + (a[i] + a[j]);
+        //cách 2:
+        for(int i =0; i<n; i++)
+            if(a[i] % 2 == 0)                           // chọn số chắn trong dãy 
+                for(int j =0; j<n; j++)
+                    if(a[j] % 2 == 1){                 // chọn số lẻ trong dãy vì khi số lẻ cộng với số chắn luôn luôn được kết quả là lẻ
+                        sum = sum + a[i] +a[j];
+                    }
+        
+        
+        System.out.println(sum);
+                   
+        
+    }
+    
+}
